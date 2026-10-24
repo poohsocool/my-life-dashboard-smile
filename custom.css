@@ -1,0 +1,379 @@
+
+/* =========================================
+   My Life Dashboard — Scrapbook Theme
+   Cream / Brown / Pastel
+   ========================================= */
+
+:root {
+  --paper: #FAF5EC;
+  --paper-light: #FFFCF7;
+  --ink: #392B22;
+  --brown: #795A40;
+  --line: #C8A987;
+  --tape: #EAD2AD;
+  --lavender: #C4A1D8;
+  --blue: #8CA8D9;
+  --green: #A8C59A;
+  --orange: #EFB36C;
+  --pink: #E99B9B;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+h1, h2, h3, h4 {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+h1 {
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  padding: 0 0 8px;
+  border-bottom: 2px solid var(--line);
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: var(--brown);
+  text-underline-offset: 3px;
+}
+
+/* ===== Full-width page ===== */
+
+#quarto-content {
+  width: 100% !important;
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+  padding: 0 36px !important;
+}
+
+main.content {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 auto !important;
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.page-columns {
+  max-width: none !important;
+}
+
+/* ===== Profile header ===== */
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  background: var(--paper-light);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 3px 4px 0 rgba(121, 90, 64, 0.08);
+}
+
+.header-profile {
+  flex: 0 0 145px;
+}
+
+.header-profile img {
+  display: block;
+  width: 140px;
+  height: 155px;
+  object-fit: cover;
+  border: 5px solid white;
+  outline: 1px solid var(--brown);
+  transform: rotate(-2deg);
+}
+
+.header-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.header-info h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.header-info p {
+  margin: 5px 0;
+}
+
+.header-logo {
+  flex: 0 0 150px;
+  text-align: center;
+}
+
+.icdi-logo {
+  max-width: 150px;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin-top: 12px;
+}
+
+.social-links a {
+  font-weight: 700;
+}
+
+/* ===== KPI cards ===== */
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin: 18px 0 36px;
+}
+
+.kpi-card {
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 20px 14px;
+  text-align: center;
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 2px 3px 0 rgba(121, 90, 64, 0.06);
+}
+
+.kpi-card:nth-child(1) {
+  border-top: 4px solid var(--tape);
+}
+
+.kpi-card:nth-child(2) {
+  border-top: 4px solid var(--green);
+}
+
+.kpi-card:nth-child(3) {
+  border-top: 4px solid var(--lavender);
+}
+
+.kpi-card:nth-child(4) {
+  border-top: 4px solid var(--orange);
+}
+
+.kpi-card h1 {
+  margin: 8px 0;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.kpi-card h3 {
+  margin: 0 0 8px;
+}
+
+.kpi-card p {
+  margin: 6px 0 0;
+}
+
+/* ===== Dashboard two-column rows ===== */
+
+/* Apply only to Quarto columns used in the dashboard */
+.columns {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: start !important;
+  gap: 28px !important;
+  width: 100% !important;
+  margin: 0 0 32px !important;
+}
+
+.columns > .column {
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.columns .column > h2 {
+  margin-top: 0;
+  min-height: 0;
+}
+
+
+/* ===== Chart output panels ===== */
+
+.cell {
+  margin-bottom: 16px;
+}
+
+/* Transparent chart containers */
+.cell-output-display {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 0;
+  overflow: hidden;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+/* Transparent ggplot / SVG backgrounds */
+.cell-output-display svg,
+.cell-output-display .main-svg,
+.cell-output-display .plotly,
+.cell-output-display .html-widget,
+.cell-output-display .plot-container {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Responsive chart sizing */
+.cell-output-display img,
+.cell-output-display svg,
+.cell-output-display .plotly,
+.cell-output-display .html-widget {
+  max-width: 100% !important;
+}
+
+.cell-output-display .plotly,
+.cell-output-display .html-widget {
+  width: 100% !important;
+}
+
+
+figcaption,
+.figure-caption {
+  color: #766455;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ===== Donut / chart legends ===== */
+
+.legend,
+.g-legend {
+  font-size: 0.9rem;
+}
+
+/* ===== Video ===== */
+
+iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  border-radius: 10px;
+  background: var(--paper-light);
+}
+
+/* ===== Tables ===== */
+
+table {
+  background: var(--paper-light);
+  border-color: #DFCBB3;
+}
+
+.table thead th {
+  background: #F0E3D1;
+  color: var(--ink);
+}
+
+/* ===== Mobile / tablet ===== */
+
+@media (max-width: 900px) {
+  #quarto-content {
+    padding: 0 20px !important;
+  }
+
+  .columns {
+    gap: 18px !important;
+  }
+
+  .kpi-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-header {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 650px) {
+  #quarto-content {
+    padding: 0 14px !important;
+  }
+
+  .columns {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .dashboard-header {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .header-profile {
+    flex: 0 0 95px;
+  }
+
+  .header-profile img {
+    width: 90px;
+    height: 105px;
+  }
+
+  .header-info {
+    flex-basis: 100%;
+  }
+
+  .header-logo {
+    flex-basis: 100%;
+    text-align: left;
+  }
+
+  .kpi-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .kpi-card {
+    padding: 14px 8px;
+  }
+
+/* Debug: remove backgrounds from chart output wrappers */
+.cell,
+.cell-output,
+.cell-output-display,
+.cell-output-display > div,
+.cell-output-display .quarto-figure,
+.cell-output-display figure,
+.cell-output-display .html-widget,
+.cell-output-display .plot-container {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Keep the page background visible */
+html,
+body,
+#quarto-content,
+main.content {
+  background-color: #FAF5EC !important;
+}
